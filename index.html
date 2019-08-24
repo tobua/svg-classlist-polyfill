@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link href="node_modules/exmpl/dist/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>SVG classList Polyfill Test</h1>
+    <script>
+      if (!('classList' in SVGElement.prototype)) {
+        document.write('<p>Polyfill was applied.</p>')
+      } else {
+        document.write(
+          '<p>SVG classList already supported in current environment. Polyfill will not be applied.</p>'
+        )
+      }
+    </script>
+    <script src="../polyfill.js"></script>
+    <script src="test.js"></script>
+  </body>
+</html>
