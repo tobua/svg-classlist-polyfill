@@ -9,26 +9,28 @@ if (!('classList' in SVGElement.prototype)) {
           return _this.className.baseVal.split(' ').indexOf(className) !== -1
         },
         add: function add(className) {
-          return this.setAttribute(
+          return _this.setAttribute(
             'class',
-            ''.concat(this.getAttribute('class'), ' ').concat(className)
+            _this.getAttribute('class') + ' ' + className
           )
         },
         remove: function remove(className) {
-          var removedClass = this.getAttribute('class').replace(
-            new RegExp('(\\s|^)'.concat(className, '(\\s|$)'), 'g'),
-            '$2'
-          )
+          var removedClass = _this
+            .getAttribute('class')
+            .replace(
+              new RegExp('(\\s|^)'.concat(className, '(\\s|$)'), 'g'),
+              '$2'
+            )
 
-          if (this.classList.contains(className)) {
-            this.setAttribute('class', removedClass)
+          if (_this.classList.contains(className)) {
+            _this.setAttribute('class', removedClass)
           }
         },
         toggle: function toggle(className) {
-          if (polyfill.contains(className)) {
-            polyfill.remove(className)
+          if (this.contains(className)) {
+            this.remove(className)
           } else {
-            polyfill.add(className)
+            this.add(className)
           }
         }
       }
