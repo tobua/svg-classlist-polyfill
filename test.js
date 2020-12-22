@@ -110,6 +110,36 @@ test(
   element.classList.contains('one') === false
 )
 
+element = setup()
+
+element.classList.add('one')
+element.classList.add('two')
+element.classList.add('three')
+element.classList.add('three')
+element.classList.add('three')
+element.classList.add('two')
+
+element.classList.remove('three')
+
+test(
+  'removes all present classes',
+  element.classList.contains('three') === false
+)
+
+element = setup()
+
+element.classList.add('a')
+element.classList.add('b')
+element.classList.add('c')
+element.classList.add('c')
+
+element.classList.remove('c')
+
+test(
+  'removes also short class names',
+  element.classList.contains('c') === false
+)
+
 document.write('<h2>SVGElement.classList.toggle</h2>')
 
 element = setup()
