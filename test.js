@@ -1,5 +1,11 @@
 function setup() {
-  return document.createElement('svg')
+  const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+
+  if (!element instanceof SVGElement) {
+    document.write("<h2>Error: Couldn't create an SVG Element for test.</h2>")
+  }
+
+  return element
 }
 
 function test(name, condition) {
@@ -20,13 +26,14 @@ test('contains without class', element.classList.contains('one') === false)
 
 element = setup()
 
-element.className = 'one'
+element.classList.add('one')
 
 test('contains with class', element.classList.contains('one') === true)
 
 element = setup()
 
-element.className = 'one two'
+element.classList.add('one')
+element.classList.add('two')
 
 test(
   'contains with several classes',
@@ -35,13 +42,15 @@ test(
 
 element = setup()
 
-element.className = 'two one'
+element.classList.add('two')
+element.classList.add('one')
 
 test('contains with order mixed', element.classList.contains('one') === true)
 
 element = setup()
 
-element.className = 'two done'
+element.classList.add('two')
+element.classList.add('done')
 
 test(
   'contains with class inside class',

@@ -15,12 +15,11 @@ if (!('classList' in SVGElement.prototype)) {
           )
         },
         remove: function remove(className) {
-          var removedClass = _this
-            .getAttribute('class')
-            .replace(
-              new RegExp('(\\s|^)'.concat(className, '(\\s|$)'), 'g'),
-              '$2'
-            )
+          var classes = _this.getAttribute('class') || ''
+          var removedClass = classes.replace(
+            new RegExp('(\\s|^)'.concat(className, '(\\s|$)'), 'g'),
+            '$2'
+          )
 
           if (_this.classList.contains(className)) {
             _this.setAttribute('class', removedClass)
@@ -32,8 +31,8 @@ if (!('classList' in SVGElement.prototype)) {
           } else {
             this.add(className)
           }
-        }
+        },
       }
-    }
+    },
   })
 }
