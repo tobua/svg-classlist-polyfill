@@ -177,3 +177,33 @@ test(
     element.classList.contains('three') === false &&
     element.classList.contains('one') === true
 )
+
+var icon = document.querySelector('#icon')
+
+var animateColors = function () {
+  setTimeout(function () {
+    icon.classList.remove('blue')
+  }, 1000)
+
+  setTimeout(function () {
+    icon.classList.remove('red')
+  }, 2000)
+
+  setTimeout(function () {
+    icon.classList.add('green')
+  }, 3000)
+
+  setTimeout(function () {
+    icon.classList.toggle('blue')
+  }, 4000)
+
+  setTimeout(function () {
+    icon.classList.remove('green')
+    icon.classList.add('red')
+  }, 4500)
+}
+
+// Apply classes to SVG icon.
+setInterval(animateColors, 5000)
+
+animateColors()
