@@ -14,12 +14,9 @@ if (!('classList' in SVGElement.prototype)) {
         },
         remove: function remove(className) {
           var classes = _this.getAttribute('class') || ''
-          const regex = new RegExp(
-            '(\\s|^)['.concat(className, '|\\s').concat(className, ']+(\\s|$)'),
-            'g'
-          )
-          classes = classes.replace(regex, '$2')
-          _this.setAttribute('class', classes.trim())
+          const regex = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g')
+          classes = classes.replace(regex, '').trim()
+          _this.setAttribute('class', classes)
         },
         toggle: function toggle(className) {
           if (this.contains(className)) {
