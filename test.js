@@ -140,6 +140,40 @@ test(
   element.classList.contains('c') === false
 )
 
+element = setup()
+
+element.classList.add('chart__data-tooltip--visible')
+element.classList.add('chart__data-tooltip')
+element.classList.add('chart__data-tooltip--visible')
+
+element.classList.remove('chart__data-tooltip--visible')
+
+test(
+  'removes multiple class names with special characters',
+  element.classList.contains('chart__data-tooltip--visible') === false
+)
+
+element = setup()
+
+element.classList.add('-one__one')
+element.classList.add('_two-two_-')
+element.classList.add('-one__one')
+element.classList.add('-one__one')
+element.classList.add('_two-two_-')
+element.classList.add('-three')
+element.classList.add('_two-two_-')
+element.classList.add('_two-two_-')
+
+element.classList.remove('-one__one')
+element.classList.remove('_two-two_-')
+
+test(
+  'removes multiple class names with multiple special characters',
+  element.classList.contains('-one__one') === false &&
+    element.classList.contains('_two-two_-') === false &&
+    element.classList.contains('-three') === true
+)
+
 document.write('<h2>SVGElement.classList.toggle</h2>')
 
 element = setup()
