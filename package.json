@@ -1,7 +1,7 @@
 {
   "name": "svg-classlist-polyfill",
   "description": "Polyfill for classList methods (contains, add, remove, toggle) on SVG elements.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Matthias Giger",
   "license": "MIT",
   "repository": "github:tobua/svg-classlist-polyfill",
@@ -17,6 +17,6 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "serve": "^11.3.2"
+    "serve": "^12.0.0"
   }
 }
