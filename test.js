@@ -1,5 +1,5 @@
 function setup() {
-  const element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  var element = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 
   if (!element instanceof SVGElement) {
     document.write("<h2>Error: Couldn't create an SVG Element for test.</h2>")

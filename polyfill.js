@@ -14,7 +14,7 @@ if (!('classList' in SVGElement.prototype)) {
         },
         remove: function remove(className) {
           var classes = _this.getAttribute('class') || ''
-          const regex = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g')
+          var regex = new RegExp('(?:^|\\s)' + className + '(?!\\S)', 'g')
           classes = classes.replace(regex, '').trim()
           _this.setAttribute('class', classes)
         },
